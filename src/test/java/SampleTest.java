@@ -1,15 +1,25 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.io.ByteArrayInputStream;
 import java.util.concurrent.TimeUnit;
 
 public class SampleTest {
     public WebDriver driver;
 
     @Test
+    //https://www.seleniumeasy.com/selenium-tutorials/allure-report-example-with-annotations
+    @Epic("Telex")
+    @Story("Telex Landing Page")
+    @Description("Navigation to the landing page")
+    @Severity(SeverityLevel.CRITICAL)
+
     public void testNavigation() {
         WebDriverManager.chromedriver().setup(); //a webdriveren keresztül tudjuk állítani a chromedriver kapcsolóit a feltelepített chromehoz
         ChromeOptions options = new ChromeOptions();
@@ -25,5 +35,7 @@ public class SampleTest {
         driver.manage().window().maximize();
 
         driver.navigate().to("https://telex.hu");
+        //https://stackoverflow.com/questions/58728908/is-it-possible-to-have-screenshots-of-allure-report-between-steps-like-extent-re#:~:text=All%20%40Step%20s%20with%20screenshot,get%20screenshot%20as%20you%20need.&text=But%20it's%20not%20possible%20to%20have%20it%20for%20Allure.
+        Allure.addAttachment("Any text", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
     }
 }
