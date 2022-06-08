@@ -36,6 +36,6 @@ public class SampleTest {
 
         driver.navigate().to("https://telex.hu");
         //https://stackoverflow.com/questions/58728908/is-it-possible-to-have-screenshots-of-allure-report-between-steps-like-extent-re#:~:text=All%20%40Step%20s%20with%20screenshot,get%20screenshot%20as%20you%20need.&text=But%20it's%20not%20possible%20to%20have%20it%20for%20Allure.
-        Allure.addAttachment("Any text", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+        Allure.addAttachment("Any text", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES))); //screenshotot csinál!!!
     }
 }
