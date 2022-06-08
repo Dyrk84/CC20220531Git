@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Jun 08 19:58:54 GMT 2022","Wed Jun 08 19:58:59 GMT 2022","5424","","SampleTest","","SampleTest","testNavigation","testNavigation()","Navigation to the landing page"
